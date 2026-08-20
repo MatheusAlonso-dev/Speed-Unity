@@ -5,6 +5,39 @@ TextureImporter:
   - first:
       213: 8043583399102421274
     second: layer-08_0
+  - first:
+      213: -7243350157779929087
+    second: layer-08_1
+  - first:
+      213: 8490931143937440929
+    second: layer-08_2
+  - first:
+      213: -85346909248304524
+    second: layer-08_3
+  - first:
+      213: -4798650443472595165
+    second: layer-08_4
+  - first:
+      213: 1983892082630153003
+    second: layer-08_5
+  - first:
+      213: -5852082107242090012
+    second: layer-08_6
+  - first:
+      213: -3212014742490946632
+    second: layer-08_7
+  - first:
+      213: -1492517801008504449
+    second: layer-08_8
+  - first:
+      213: 5006488762340901344
+    second: layer-08_9
+  - first:
+      213: 4401388856997573623
+    second: layer-08_10
+  - first:
+      213: 5013892941336909314
+    second: layer-08_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +84,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1

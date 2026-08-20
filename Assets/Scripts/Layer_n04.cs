@@ -13,14 +13,14 @@ public class Layer_n04 : MonoBehaviour
         velocity = 1f * _parallaxControler._overrallSpeed;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteSize = spriteRenderer.bounds.size.x;
-        Debug.Log("tamanho" + spriteSize);
+        Debug.Log("tamanho layer 4:" + spriteSize);
 
     }
 
     // Update is called once per frame
     void Update() {
         moverLayer();
-        if(transform.position.x <= -30) {
+        if(transform.position.x <= -50) {
             Debug.Log("layer 4 saiu da camera");
             GameObject layerTemporaria4 = Instantiate(_parallaxControler.bg_layer_n04);
             layerTemporaria4.transform.position = new Vector3(transform.position.x + (2 * spriteSize), transform.position.y, transform.position.z);

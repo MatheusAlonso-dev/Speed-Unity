@@ -10,7 +10,7 @@ public class Layer_n08 : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         _parallaxControler = FindAnyObjectByType<ParalaxController>();
-        velocity = 0.4f * _parallaxControler._overrallSpeed;
+        velocity = 0.3f * _parallaxControler._overrallSpeed;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteSize = spriteRenderer.bounds.size.x;
 

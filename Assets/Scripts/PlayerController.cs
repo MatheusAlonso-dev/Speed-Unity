@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform Player;
     public Transform[] Position;
-    public float speed;
+    public float velocity;
 
     private int idTarget;
 
@@ -53,7 +53,17 @@ public class PlayerController : MonoBehaviour
             }
 
             if (Position[idTarget].position != Player.position) {
-                Player.position = Vector3.MoveTowards(Player.position, Position[idTarget].position, speed * Time.deltaTime);
+                Player.position = Vector3.MoveTowards(Player.position, Position[idTarget].position, velocity * Time.deltaTime);
+                if (idTarget == 0) {
+                    Player.transform.rotation = Quaternion.Euler(0, 0, 20);
+                }
+                else {
+                    Player.transform.rotation = Quaternion.Euler(0, 0, -20);
+                }
+            }
+            else {
+
+                Player.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
             
         }

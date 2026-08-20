@@ -5,6 +5,15 @@ TextureImporter:
   - first:
       213: 732193025823337624
     second: layer-04_0
+  - first:
+      213: -6090914243849734191
+    second: layer-04_1
+  - first:
+      213: -260732268579185088
+    second: layer-04_2
+  - first:
+      213: 4216168204446874547
+    second: layer-04_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
