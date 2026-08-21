@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   txtScore: {fileID: 127685377}
   txtLevel: {fileID: 1764891451}
-  level: 1
+  level: 0
   score: 0
   life: 0
   velocity: 1

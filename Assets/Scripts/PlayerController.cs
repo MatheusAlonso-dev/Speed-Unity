@@ -37,7 +37,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         movePlayer();
+
     }
+
+    
 
     private void movePlayer() {
         if (Player != null) {

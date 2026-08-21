@@ -3,6 +3,7 @@ using UnityEngine;
 public class Layer_n08 : MonoBehaviour
 {
     private ParalaxController _parallaxControler;
+    private GameController _gameController;
     private float velocity;
     private SpriteRenderer spriteRenderer;
     private float spriteSize;
@@ -10,7 +11,8 @@ public class Layer_n08 : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         _parallaxControler = FindAnyObjectByType<ParalaxController>();
-        velocity = 0.3f * _parallaxControler._overrallSpeed;
+        _gameController = FindAnyObjectByType<GameController>();
+        velocity = 0.3f * _gameController.velocity;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteSize = spriteRenderer.bounds.size.x;
 
@@ -19,6 +21,7 @@ public class Layer_n08 : MonoBehaviour
     // Update is called once per frame
     void Update() {
         moverLayer();
+        velocity = 0.3f * _gameController.velocity;
     }
     private void FixedUpdate() {
 

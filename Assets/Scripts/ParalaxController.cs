@@ -5,7 +5,6 @@ public class ParalaxController : MonoBehaviour
 {
 
     [Header("Elementos background parallax")]
-    public float _overrallSpeed;
     [Header("Prefabs camadas")]
     public GameObject bg_layer_n04;
     public GameObject bg_layer_n05;
