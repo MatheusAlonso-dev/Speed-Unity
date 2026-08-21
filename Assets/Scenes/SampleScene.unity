@@ -1054,8 +1054,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   txtScore: {fileID: 127685377}
   txtLevel: {fileID: 1764891451}
-  level: 1
-  score: 0
+  level: 0
+  score: 199
   life: 0
   velocity: 1
   Enemy: {fileID: 4158815478162800555, guid: a0214b9fb070d6d4288077001f006144, type: 3}
@@ -1535,7 +1535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1996916670
 Transform:
   m_ObjectHideFlags: 0

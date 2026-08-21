@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = Mathf.Pow(_gameController.velocity, 2); ;
+        velocity = Mathf.Pow(_gameController.velocity, 3); ;
         moverEnemy();
         
     }

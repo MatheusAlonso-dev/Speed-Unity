@@ -14,6 +14,7 @@ TagManager:
   - layer_n07
   - layer_n08
   - layer_n09
+  - enemy
   layers:
   - Default
   - TransparentFX
