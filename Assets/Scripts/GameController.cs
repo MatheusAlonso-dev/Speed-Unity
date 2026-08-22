@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -20,6 +21,13 @@ public class GameController : MonoBehaviour
     [Header("Enemies")]
     public GameObject Enemy;
     private float interval;
+
+    [Header("Music")]
+    public AudioSource _fxGame_music;
+    public AudioSource _fxGame_efects;
+    public AudioClip _fxLevelUp;
+    public AudioClip _destroyEnemy;
+    public AudioClip _time;
 
 
 
@@ -97,6 +105,14 @@ public class GameController : MonoBehaviour
 
     void destroyAllEnemies() {
         GameObject[] inimigos = GameObject.FindGameObjectsWithTag("enemy");
+        _fxGame_efects.PlayOneShot(_destroyEnemy);
+
+        foreach (GameObject inimigo in inimigos) {
+            Destroy(inimigo);
+        }
+    }
+    void destroyAllEnemiesNoSongs() {
+        GameObject[] inimigos = GameObject.FindGameObjectsWithTag("enemy");
 
         foreach (GameObject inimigo in inimigos) {
             Destroy(inimigo);
@@ -116,6 +132,7 @@ public class GameController : MonoBehaviour
                 break;
             case 20:
                 
+                _fxGame_efects.PlayOneShot(_fxLevelUp);
                 CancelInvoke("spawnEnemy");
                 level = 2;
                 interval = 2;
@@ -123,15 +140,15 @@ public class GameController : MonoBehaviour
                 InvokeRepeating("spawnEnemy", 1f, interval);
                 break;
             case 40:
-                
+                _fxGame_efects.PlayOneShot(_fxLevelUp);
                 CancelInvoke("spawnEnemy");
                 level = 3;
                 interval = 0.5f;
                 velocity = 2.6f;
                 InvokeRepeating("spawnEnemy", 1f, interval);
                 break;
-            case 60:
-                
+            case 64:
+                _fxGame_efects.PlayOneShot(_fxLevelUp);
                 CancelInvoke("spawnEnemy");
                 level = 4;
                 interval = 0.5f;
@@ -139,31 +156,43 @@ public class GameController : MonoBehaviour
                 InvokeRepeating("spawnEnemy", 1f, interval);
                 break;
             case 80:
-                
+                _fxGame_efects.PlayOneShot(_fxLevelUp);
                 CancelInvoke("spawnEnemy");
                 level = 5;
                 interval = 0.3f;
                 velocity = 2.6f;
                 InvokeRepeating("spawnEnemy", 1f, interval);
                 break;
-            case 100:
-                
+            case 96:
+                _fxGame_music.pitch = 0.5f;
                 CancelInvoke("spawnEnemy");
                 level = 6;
                 interval = 0.4f;
                 velocity = 2f;
                 InvokeRepeating("spawnEnemy", 1f, interval);
                 break;
-            case 150:
-                destroyAllEnemies();
+            case 108:
+                _fxGame_music.pitch = 1f;
+                break;
+            case 117:
+                _fxGame_efects.PlayOneShot(_time);
+                _fxGame_music.Stop();
+                destroyAllEnemiesNoSongs();
                 CancelInvoke("spawnEnemy");
+                break;
+            case 121:
                 level = 7;
                 interval = 0.5f;
                 velocity = 3f;
                 InvokeRepeating("spawnEnemy", 1f, interval);
                 break;
-            case 180:
-                
+            case 122:
+                _fxGame_music.time = 126.4f;                
+                _fxGame_music.pitch = 1f;
+                _fxGame_music.Play();
+                break;
+            case 136:
+                _fxGame_efects.PlayOneShot(_fxLevelUp);
                 CancelInvoke("spawnEnemy");
                 positionEnemy = 1;
                 level = 8;
@@ -171,15 +200,18 @@ public class GameController : MonoBehaviour
                 velocity = 2.6f;
                 InvokeRepeating("spawnEnemy", 1f, interval);
                 break;
-            case 200:
+            case 152:
+                _fxGame_music.pitch = 1.5f;
+                _fxGame_efects.PlayOneShot(_fxLevelUp);
                 destroyAllEnemies();
                 CancelInvoke("spawnEnemy");
                 level = 9;
                 interval = 0.4f;
-                velocity = 3.3f;
+                velocity = 3f;
                 InvokeRepeating("spawnEnemy", 1f, interval);
                 break;
-            case 250:
+            case 173:
+                _fxGame_efects.PlayOneShot(_fxLevelUp);
                 CancelInvoke("spawnEnemy");
                 level = 10;
                 interval = 0.4f;
