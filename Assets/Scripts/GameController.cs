@@ -77,16 +77,12 @@ public class GameController : MonoBehaviour
                 }
                 break;
             case 9:
-                positionEnemy = Random.Range(1, 3);
+                positionEnemy = Random.Range(1, 5);
                 break;
             case 10:
-                if (positionEnemy == 1) {
-                    positionEnemy = 2;
-                }
-                else {
-                    positionEnemy = 1;
-                }
+                positionEnemy = Random.Range(1, 3);
                 break;
+            
 
         }
 
@@ -128,7 +124,7 @@ public class GameController : MonoBehaviour
                 level = 1;
                 interval = 3;
                 velocity = 2;
-                InvokeRepeating("spawnEnemy", 1f, interval);
+                InvokeRepeating("spawnEnemy", 3f, interval);
                 break;
             case 20:
                 
@@ -183,8 +179,8 @@ public class GameController : MonoBehaviour
             case 121:
                 level = 7;
                 interval = 0.5f;
-                velocity = 3f;
-                InvokeRepeating("spawnEnemy", 1f, interval);
+                velocity = 3.3f;  //3
+                InvokeRepeating("spawnEnemy", 1.3f, interval);
                 break;
             case 122:
                 _fxGame_music.time = 126.4f;                
@@ -207,18 +203,17 @@ public class GameController : MonoBehaviour
                 CancelInvoke("spawnEnemy");
                 level = 9;
                 interval = 0.4f;
-                velocity = 3f;
-                InvokeRepeating("spawnEnemy", 1f, interval);
+                velocity = 3.3f;
+                InvokeRepeating("spawnEnemy", 2f, interval);
                 break;
-            case 173:
+            case 193:                
                 _fxGame_efects.PlayOneShot(_fxLevelUp);
-                CancelInvoke("spawnEnemy");
                 level = 10;
-                interval = 0.4f;
-                velocity = 2f;
-                InvokeRepeating("spawnEnemy", 1f, interval);
+                interval = 0.5f;
+                CancelInvoke("spawnEnemy");
+                InvokeRepeating("spawnEnemy", 2f, interval);
+                velocity = 3.4f;
                 break;
-
 
         }
         txtScore.text = score.ToString();
