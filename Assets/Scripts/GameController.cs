@@ -42,6 +42,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(life <= 0) {
+            Debug.Log("FECHAR APLICAÇÃO");
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
        
     }
 

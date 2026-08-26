@@ -7,12 +7,13 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     private InputSystem_Actions inputActions;
+    public PlayerColliderController _playerColliderController;
 
     public Transform Player;
     public Transform[] Position;
     public float velocity;
 
-    private int idTarget;
+    public int idTarget;
 
 
     private void Awake() {
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Start()    
     {
         Player.position = new Vector3(-25,Position[0].position.y,0);
+        _playerColliderController = FindAnyObjectByType<PlayerColliderController>();
         idTarget = 1;
     }
 
@@ -55,7 +57,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (Position[idTarget].position != Player.position) {
+            if (Position[idTarget].position != Player.position && _playerColliderController.isHit == false) {
                 Player.position = Vector3.MoveTowards(Player.position, Position[idTarget].position, velocity * Time.deltaTime);
                 if (idTarget == 0) {
                     Player.transform.rotation = Quaternion.Euler(0, 0, 20);
