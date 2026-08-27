@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
                     Player.transform.rotation = Quaternion.Euler(0, 0, -20);
                 }
             }
-            else {
+            else if(_playerColliderController.isHit == false) {
 
                 Player.transform.rotation = Quaternion.Euler(0, 0, 0);
             }

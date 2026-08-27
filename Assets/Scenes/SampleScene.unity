@@ -1264,11 +1264,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d60b718f57c3e4ca405c1962527d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  _playerColliderController: {fileID: 0}
   Player: {fileID: 2032677586}
   Position:
   - {fileID: 1419269744}
   - {fileID: 667245065}
   velocity: 20
+  idTarget: 0
 --- !u!1 &1159311569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1296,7 @@ Transform:
   m_GameObject: {fileID: 1159311569}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.36, y: 4.5, z: 0}
+  m_LocalPosition: {x: -14.73, y: 4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1842,7 +1844,7 @@ Transform:
   m_GameObject: {fileID: 1865977676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.3600006, y: 0.49, z: 0}
+  m_LocalPosition: {x: -14.73, y: 0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2096,6 +2098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerColliderController
   _fxGame_efects: {fileID: 1514690913}
   _explosion: {fileID: 8300000, guid: 28c7db89e776478498090d2c4c0dbfd5, type: 3}
+  isHit: 0
   point:
   - {fileID: 1159311570}
   - {fileID: 1865977677}

@@ -18,13 +18,12 @@ public class PlayerColliderController : MonoBehaviour
     void Start()
     {
         _fxGame_efects.clip = _explosion;
-        _fxGame_efects.time = 0.4f;
         
         _gameController = FindAnyObjectByType<GameController>();
         _playerController = FindAnyObjectByType<PlayerController>();
 
         idTarget = 0;
-        velocityHit = 20;
+        velocityHit = 15;
         isHit = false;
         returning = false;
 
@@ -33,9 +32,11 @@ public class PlayerColliderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         playerPositionDefault = _playerController.Position[_playerController.idTarget];
         if (isHit) {
             movingToTarget();
+            
         }
         
         
@@ -45,7 +46,7 @@ public class PlayerColliderController : MonoBehaviour
         collision();
     }
     private void collision() {
-        
+        _fxGame_efects.Play();
         
         if (gameObject.transform.position.y > 0 ) {
             idTarget = 0;
@@ -66,10 +67,14 @@ public class PlayerColliderController : MonoBehaviour
         }
 
         if (returning) {
+            velocityHit = 35;
             transform.position = Vector3.MoveTowards(transform.position, playerPositionDefault.position, velocityHit * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else {
+            velocityHit = 15;
             transform.position = Vector3.MoveTowards(transform.position, point[idTarget].position, velocityHit * Time.deltaTime);
+            transform.Rotate(0f, 0f, -500f * Time.deltaTime);
         }
 
 
