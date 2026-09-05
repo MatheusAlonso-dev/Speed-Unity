@@ -2128,10 +2128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34dac757bc09404f8147baafe0be0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerColliderController
-  _fxGame_efects: {fileID: 1514690913}
+  _fxGameEfects: {fileID: 0}
   _explosion: {fileID: 8300000, guid: 28c7db89e776478498090d2c4c0dbfd5, type: 3}
   isHit: 0
-  point:
+  positionHit:
   - {fileID: 1159311570}
   - {fileID: 1865977677}
   idTarget: 0
