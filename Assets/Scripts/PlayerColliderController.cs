@@ -6,31 +6,29 @@ public class PlayerColliderController : MonoBehaviour
     PlayerController _playerController;
     SpriteRenderer spriteRenderer;
     Color colorSprite;
-    public AudioSource _fxGame_efects;
+    public AudioSource _fxGameEfects;
     public AudioClip _explosion;
-    private float velocityHit;
+    float velocityHit;
     public bool isHit;
-    private bool invulnerable;
-    public Transform[] point;
-    private bool returning;
+    bool invulnerable;
+    public Transform[] positionHit;
+    bool returning;
     public int idTarget;
-    private Transform playerPositionDefault;
-    private bool isVulnerable;
-    private float timeInvulnerable;
+    Transform playerPositionDefault;
+    bool isVulnerable;
+    float timeInvulnerable;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
-        _fxGame_efects.clip = _explosion;
+        _fxGameEfects.clip = _explosion;
         
         spriteRenderer = GetComponent<SpriteRenderer>();
         _gameController = FindAnyObjectByType<GameController>();
         _playerController = FindAnyObjectByType<PlayerController>();
         colorSprite = spriteRenderer.color;
         colorSprite.a = 1f;
-
-
 
         idTarget = 0;
         velocityHit = 15;
@@ -75,7 +73,7 @@ public class PlayerColliderController : MonoBehaviour
     private void collision() {
         isVulnerable = false;
         Invoke(nameof(vulnerable), timeInvulnerable);
-        _fxGame_efects.Play();
+        _fxGameEfects.Play();
         _gameController.life -= 1;
 
         
@@ -93,7 +91,7 @@ public class PlayerColliderController : MonoBehaviour
     private void movingToTarget() {
         Debug.Log("Antes: " + transform.position);
         
-        if (transform.position == point[idTarget].position) {
+        if (transform.position == positionHit[idTarget].position) {
             returning = true;
         }
 
@@ -108,7 +106,7 @@ public class PlayerColliderController : MonoBehaviour
         }
         else {
             velocityHit = 15;
-            transform.position = Vector3.MoveTowards(transform.position, point[idTarget].position, velocityHit * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, positionHit[idTarget].position, velocityHit * Time.deltaTime);
             transform.Rotate(0f, 0f, -500f * Time.deltaTime);
         }
 
