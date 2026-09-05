@@ -4,6 +4,8 @@ public class PlayerColliderController : MonoBehaviour
 {
     GameController _gameController;
     PlayerController _playerController;
+    SpriteRenderer spriteRenderer;
+    Color colorSprite;
     public AudioSource _fxGame_efects;
     public AudioClip _explosion;
     private float velocityHit;
@@ -14,20 +16,28 @@ public class PlayerColliderController : MonoBehaviour
     public int idTarget;
     private Transform playerPositionDefault;
     private bool isVulnerable;
+    private float timeInvulnerable;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         _fxGame_efects.clip = _explosion;
         
+        spriteRenderer = GetComponent<SpriteRenderer>();
         _gameController = FindAnyObjectByType<GameController>();
         _playerController = FindAnyObjectByType<PlayerController>();
+        colorSprite = spriteRenderer.color;
+        colorSprite.a = 1f;
+
+
 
         idTarget = 0;
         velocityHit = 15;
         isHit = false;
         returning = false;
         isVulnerable = true;
+        timeInvulnerable = 5f;
 
     }
 
@@ -37,18 +47,34 @@ public class PlayerColliderController : MonoBehaviour
         playerPositionDefault = _playerController.Position[_playerController.idTarget];
         if (isHit) {
             movingToTarget();            
-        }       
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (isVulnerable) {
             collision();
+            InvokeRepeating("spriteInvunerable", 1f, 0.1f);
+            Invoke(nameof(cancelSpriteInvunerable), timeInvulnerable);
         }
         
     }
+
+    private void spriteInvunerable() {
+        
+            if(colorSprite.a >= 0.5) {
+                colorSprite.a = 0f;
+            }
+            else {
+                colorSprite.a = 0.5f;
+            }
+            spriteRenderer.color = colorSprite;
+        
+    }
+
     private void collision() {
         isVulnerable = false;
-        Invoke(nameof(vulnerable), 5f);
+        Invoke(nameof(vulnerable), timeInvulnerable);
         _fxGame_efects.Play();
         _gameController.life -= 1;
 
@@ -96,6 +122,11 @@ public class PlayerColliderController : MonoBehaviour
 
     void vulnerable() {
         isVulnerable = true;
+    }
+    private void cancelSpriteInvunerable() {
+        colorSprite.a = 1f;
+        spriteRenderer.color = colorSprite;
+        CancelInvoke("spriteInvunerable");
     }
 
 }
