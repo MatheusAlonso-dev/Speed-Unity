@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -48,7 +50,20 @@ public class GameController : MonoBehaviour
             Invoke(nameof(fecharAplicacao), 3f);
             
         }
-       
+
+
+        if (Keyboard.current.escapeKey.wasPressedThisFrame) {
+            if (Time.timeScale == 1f) {
+                Time.timeScale = 0f;
+                _fxGame_music.Pause();
+            }
+            else {
+                Time.timeScale = 1f;
+                _fxGame_music.UnPause();
+            }
+        }
+
+
     }
 
     public void spawnEnemy() {
@@ -227,6 +242,7 @@ public class GameController : MonoBehaviour
     }
 
     void fecharAplicacao() {
-        UnityEditor.EditorApplication.isPlaying = false;
+        SceneManager.LoadScene("MainMenu");
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 }
