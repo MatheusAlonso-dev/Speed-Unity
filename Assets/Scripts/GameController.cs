@@ -45,7 +45,8 @@ public class GameController : MonoBehaviour
 
         if(life <= 0) {
             Debug.Log("FECHAR APLICAÇÃO");
-            UnityEditor.EditorApplication.isPlaying = false;
+            Invoke(nameof(fecharAplicacao), 3f);
+            
         }
        
     }
@@ -223,5 +224,9 @@ public class GameController : MonoBehaviour
         }
         txtScore.text = score.ToString();
         txtLevel.text = level.ToString();
+    }
+
+    void fecharAplicacao() {
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
